@@ -12,6 +12,7 @@ const StatusList = ({posts}) => {
                     <Status 
                     key={post.id} 
                     text={post.post}
+                    likes={post.likes}
                     />
                 ))
             }

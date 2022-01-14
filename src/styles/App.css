@@ -17,13 +17,13 @@ h3 {
 .btn_post_status {
     outline: none;
     padding: .8rem 1.6rem;
-    border-radius: .6rem;
+    border-radius: .4rem;
     font-size: 1.4rem;
 }
 
 textarea.post_status {
     resize: none;
-    border-radius: .6rem;
+    border-radius: .4rem;
     padding: 1.2rem;
     font-size: 1.4rem;
     background: #798185;
@@ -32,6 +32,6 @@ textarea.post_status {
 
 .search_bar {
     padding: 1rem;
-    border-radius: .6rem;
+    border-radius: .4rem;
     font-size: 1.4rem;
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import StatusList from "./StatusList";
 
@@ -11,23 +11,31 @@ function App() {
   const [posts, setPosts] = useState([
     {
       id: 1,
-      post: "Post your status here!"
+      post: "Post your status here!",
+      likes: 3
     },
     {
       id: 2,
-      post: "You can use emojis 👋"
+      post: "You can use emojis 👋",
+      likes: 5
     },
     {
       id: 3,
-      post: "Try using #hashtags!"
+      post: "Try using #hashtags!",
+      likes: 2
     },
     {
       id: 4,
-      post: "Share your thoughts freely!"
+      post: "Share your thoughts freely!",
+      likes: 9
     }
   ]);
 
   const [postId, setPostId] = useState(5);
+
+  const [query, setQuery] = useState("");
+
+  const [queriedPosts, setQueriedPosts] = useState([]);
 
   const handleChange = (e) => {
     setPost(e.target.value);
@@ -38,7 +46,8 @@ function App() {
     if(post) {
       const newPost = {
         id: postId,
-        post: post
+        post: post,
+        likes: Math.floor(Math.random(0, 10) * 10)
       };
       setPosts(posts => ([...posts, newPost]));
       setPostId(postId => (postId+1));
@@ -47,12 +56,16 @@ function App() {
   }
 
   const searchPosts = (term) => {
-    return posts.filter(post => post.post.toLocaleLowerCase().indexOf(term) > -1)
+    return posts.filter(post => post.post.toLowerCase().indexOf(term) > -1)
   }
 
   const handleQuery = (e) => {
-    setPosts(searchPosts(e.target.value));
+    setQuery(e.target.value);
   }
+
+  useEffect(() => {
+    setQueriedPosts(searchPosts(query));
+  }, [query])
 
   return (
     <div className="App">
@@ -74,9 +87,9 @@ function App() {
         <br/>
         <button className="btn_post_status" onClick={addPost}>Post status</button>
         <br/>
-        <StatusList 
-        posts={posts}
-        />
+        {
+          query ? <StatusList posts={queriedPosts} /> : <StatusList posts={posts} /> 
+        }
       </div>
     </div>
   );
