@@ -55,15 +55,14 @@ function App() {
     }
   }
 
-  const searchPosts = (term) => {
-    return posts.filter(post => post.post.toLowerCase().indexOf(term) > -1)
-  }
-
   const handleQuery = (e) => {
     setQuery(e.target.value);
   }
 
   useEffect(() => {
+    const searchPosts = (term) => {
+      return posts.filter(post => post.post.toLowerCase().indexOf(term) > -1)
+    }  
     setQueriedPosts(searchPosts(query));
   }, [query])
 
