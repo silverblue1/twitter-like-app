@@ -12,7 +12,7 @@ const Status = ({text, likes}) => {
         <div className='post'>
             {
                 reactStringReplace(text, re, (match, i) => (
-                    <a key={i} href="#">#{match}</a>
+                    <a key={i} href="/">#{match}</a>
                 ))
             }
             <br/>
