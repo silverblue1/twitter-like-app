@@ -12,22 +12,22 @@ function App() {
     {
       id: 1,
       post: "Post your status here!",
-      likes: 3
+      likes: 1
     },
     {
       id: 2,
       post: "You can use emojis 👋",
-      likes: 5
+      likes: 1
     },
     {
       id: 3,
       post: "Try using #hashtags!",
-      likes: 2
+      likes: 1
     },
     {
       id: 4,
       post: "Share your thoughts freely!",
-      likes: 9
+      likes: 1
     }
   ]);
 
@@ -47,7 +47,7 @@ function App() {
       const newPost = {
         id: postId,
         post: post,
-        likes: Math.floor(Math.random(0, 10) * 10)
+        likes: 1
       };
       setPosts(posts => ([...posts, newPost]));
       setPostId(postId => (postId+1));
