@@ -64,7 +64,7 @@ function App() {
       return posts.filter(post => post.post.toLowerCase().indexOf(term) > -1)
     }  
     setQueriedPosts(searchPosts(query));
-  }, [query])
+  }, [query, posts])
 
   return (
     <div className="App">
